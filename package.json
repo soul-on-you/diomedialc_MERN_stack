@@ -1,0 +1,27 @@
+{
+  "name": "mern_stack",
+  "version": "0.0.0",
+  "description": "Microservice cloud storage based on MongoDB Express React Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soul-on-you/diomedialc_MERN_stack.git"
+  },
+  "keywords": [
+    "mongodb",
+    "express",
+    "react",
+    "nodejs",
+    "mern_stack",
+    "mern"
+  ],
+  "author": "diomedialc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soul-on-you/diomedialc_MERN_stack/issues"
+  },
+  "homepage": "https://github.com/soul-on-you/diomedialc_MERN_stack#readme"
+}
