@@ -2,11 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const config = require("config");
 const router = require("./routers/auth.router");
+const cors = require("./middleware/cors.middleware");
 
 const app = express();
 const PORT = config.get("serverPort");
 
-app.use(express.json())
+app.use(cors);
+app.use(express.json());
 app.use("/api/auth", router);
 
 const start = async () => {
