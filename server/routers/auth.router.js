@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const config = require("config");
+const authMiddleware = require("../middleware/auth.middleware");
 
 router.post(
   "/registration",
@@ -98,5 +99,29 @@ router.post(
     }
   }
 );
+
+router.get("/auth", authMiddleware, async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.user.id });
+
+    const token = jwt.sign({ id: user.id }, config.get("private-jwt-key"), {
+      expiresIn: "1h",
+    });
+
+    return res.json({
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        storageSpace: user.storageSpace,
+        usedSpace: user.usedSpace,
+        avatar: user.avatar,
+      },
+    });
+  } catch (err) {
+    console.error(err);
+    res.send({ message: "Server error" });
+  }
+});
 
 module.exports = router;

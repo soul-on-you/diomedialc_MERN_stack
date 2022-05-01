@@ -1,6 +1,6 @@
 {
   "name": "mern_stack",
-  "version": "0.0.0",
+  "version": "0.3.0",
   "description": "Microservice cloud storage based on MongoDB Express React Nodejs",
   "main": "index.js",
   "scripts": {
